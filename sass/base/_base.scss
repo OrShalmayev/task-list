@@ -1,0 +1,106 @@
+*{
+    margin: 0; padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+
+}
+
+
+
+
+.wrapper{
+    display: grid;
+    grid-template-areas: "... task-list ...";
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+  
+  /*
+  .task-list
+  */
+  .task-list{
+    grid-area: task-list;
+    background: #d3d3d3;
+    padding: 50px;
+  
+    /* 
+    task-list__new-task
+    */
+    &__new-task{
+      position: relative;
+      //task-list__new-task__input
+      &__input{
+        display:block;
+        max-width:100%; width:100%;
+        padding:1rem;
+        outline:none;
+        border-radius: 5px;
+        &:hover, &:focus{
+          border:2px solid #000;
+        }
+      }
+  
+    }
+    
+    /* 
+    task-list__headline
+    */
+    &__headline{
+      font-size: 4rem;
+      text-align:center;
+      color: blue;
+      
+    }
+    
+    /* 
+    * task-list__task 
+    */
+    &__task{
+      font-size: 2.6rem;
+      padding:2rem;
+      display:flex;
+      justify-content:space-between;
+      background: #fff;
+      border-bottom: 1px solid #d3d3d3;
+      
+      /* task-list__task--box */
+      &--box{
+        padding:1rem;
+        background: #fff;
+      }/* ./task-list__task--box */
+      
+    }/* ./task-list__task  */
+    
+    
+    
+    
+  }/* /.task-list */
+  
+  
+  /*BUTTONS*/
+    .add-task-btn{
+      position:absolute;
+      right:15px;
+      top: 15px;
+      padding:10px;
+      border-radius: 50%;
+      outline:none;
+      appearance:none;
+      border:none;
+      &:hover{
+        background: green;
+      }
+    }

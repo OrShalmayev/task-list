@@ -1,0 +1,70 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- xs
+- sm
+- md
+- lg
+- xl
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == xs {
+        @media only screen and (max-width: 36em) { @content };// screen is <= 576px / 16px = 36em
+    }
+    @if $breakpoint == sm {
+        @media only screen and (max-width: 48em) { @content };//screen is <= 768px / 16px = 48em
+    }
+    @if $breakpoint == md {
+        @media only screen and (max-width: 62em) { @content };//screen is <= 992px / 16px = 62em
+    }
+    @if $breakpoint == lg {
+        @media only screen and (min-width: 75em) { @content };//screen is <= 1200px / 16px = 75em
+    }
+}
+// @mixin respond($breakpoint) {
+
+//     @if $breakpoint == xs {
+//         @media only screen and (max-width: 31.25em) { @content };    // 500px / 16px = 31.25em
+//     }
+//     @if $breakpoint == sm {
+//         @media only screen and (max-width: 37.5em) { @content };     //600px / 16px = 37.5em
+//     }
+//     @if $breakpoint == md {
+//         @media only screen and (max-width: 56.25em) { @content };    //900px / 16px = 56.25em
+//     }
+//     @if $breakpoint == lg {
+//         @media only screen and (max-width: 68.75em) { @content };    //1100px / 16px = 68.75em
+//     }
+//     @if $breakpoint == xl {
+//         @media only screen and (min-width: 75) { @content };    //1200px / 16px = 75em
+//     }
+// }
